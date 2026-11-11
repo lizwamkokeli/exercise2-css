@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Image Gallery</h1>
+
+    <!-- Filter Buttons -->
+    <div class="filters">
+        <button class="active" onclick="filterGallery('all', this)">All</button>
+        <button onclick="filterGallery('landscapes', this)">Landscapes</button>
+        <button onclick="filterGallery('portraits', this)">Portraits</button>
+        <button onclick="filterGallery('architecture', this)">Architecture</button>
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="gallery">
+
+        <!-- Landscapes -->
+        <div class="card" data-category="landscapes">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600" alt="Mountain landscape">
+            <div class="content">
+                <h3>Mountain View</h3>
+                <span>Landscapes</span>
+                <div class="overlay">Beautiful mountain surrounded by nature.</div>
+            </div>
+        </div>
+
+        <div class="card" data-category="landscapes">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600" alt="Lake landscape">
+            <div class="content">
+                <h3>Peaceful Lake</h3>
+                <span>Landscapes</span>
+                <div class="overlay">A peaceful lake surrounded by green mountains.</div>
+            </div>
+        </div>
+
+        <div class="card" data-category="landscapes">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600" alt="Nature landscape">
+            <div class="content">
+                <h3>Nature Escape</h3>
+                <span>Landscapes</span>
+                <div class="overlay">A beautiful natural landscape with beautiful views.</div>
+            </div>
+        </div>
+
+        <div class="card" data-category="landscapes">
+            <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600" alt="Forest landscape">
+            <div class="content">
+                <h3>Forest Beauty</h3>
+                <span>Landscapes</span>
+                <div class="overlay">A peaceful forest filled with natural beauty.</div>
+            </div>
+        </div>
+
+        <!-- Portraits -->
+        <div class="card" data-category="portraits">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600" alt="Portrait of a woman">
+            <div class="content">
+                <h3>Natural Beauty</h3>
+                <span>Portraits</span>
+                <div class="overlay">A portrait capturing natural beauty and expression.</div>
+            </div>
+        </div>
+
+        <div class="card" data-category="portraits">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600" alt="Portrait of a man">
+            <div class="content">
+                <h3>Classic Portrait</h3>
+                <span>Portraits</span>
+                <div class="overlay">A simple and classic portrait photograph.</div>
+            </div>
+        </div>
+
+        <div class="card" data-category="portraits">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600" alt="Woman portrait">
+            <div class="content">
+                <h3>Golden Moments</h3>
+                <span>Portraits</span>
+                <div class="overlay">A beautiful portrait capturing a special moment.</div>
+            </div>
+        </div>
+
+        <div class="card" data-category="portraits">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600" alt="Man portrait">
+            <div class="content">
+                <h3>Personal Expression</h3>
+                <span>Portraits</span>
+                <div class="overlay">A portrait showing personality and expression.</div>
+            </div>
+        </div>
+
+        <!-- Architecture -->
+        <div class="card" data-category="architecture">
+            <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600" alt="Modern building">
+            <div class="content">
+                <h3>Modern Design</h3>
+                <span>Architecture</span>
+                <div class="overlay">A modern building design.</div>
+            </div>
+        </div>
+
+        <div class="card" data-category="architecture">
+            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=600" alt="Architectural structure">
+            <div class="content">
+                <h3>Urban Structure</h3>
+                <span>Architecture</span>
+                <div class="overlay">An impressive building structure in the city.</div>
+            </div>
+        </div>
+
+        <div class="card" data-category="architecture">
+            <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=600" alt="Modern architecture">
+            <div class="content">
+                <h3>City Architecture</h3>
+                <span>Architecture</span>
+                <div class="overlay">Beautiful modern architecture and geometric shapes.</div>
+            </div>
+        </div>
+
+        <div class="card" data-category="architecture">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600" alt="Building interior">
+            <div class="content">
+                <h3>Building Design</h3>
+                <span>Architecture</span>
+                <div class="overlay">A stylish building space with modern design.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Filtering Script -->
+    <script>
+        function filterGallery(category, button) {
+            const cards = document.querySelectorAll('.card');
+            const buttons = document.querySelectorAll('.filters button');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.classList.remove('hide');
+                } else {
+                    card.classList.add('hide');
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
